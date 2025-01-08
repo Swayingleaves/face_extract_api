@@ -86,8 +86,8 @@ docker build --load -t face_extract_api:v1 .
 注意下载 https://github.com/serengil/deepface_models/releases/download/v1.0/facenet512_weights.h5 后面需要将模型挂载进容器
 
 ```shell
-docker run -itd --name extrac_face_api -p 5006:5006 \
--v /Users/edy/Documents/deepface/weights:/root/.deepface/weights/ \
--v /Users/edy/Documents/extrac_face_api/deepface/deepface-output:/app/deepface-output \
+docker run -itd --name face_extract_api -p 5006:5006 \
+-v ~/face_extract_api/weights:/root/.deepface/weights/ \
+-v ~/face_extract_api/deepface-output:/app/deepface-output \
 face_extract_api:v1
 ```
