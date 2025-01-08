@@ -4,7 +4,7 @@
 
 ### api-抽取人脸
 请求
-```http
+```
 curl -XPOST 'http://127.0.01:5006/detect_faces' --form 'file=@"/Users/edy/Downloads/duorenlian.jpeg"'
 ```
 
@@ -27,7 +27,7 @@ curl -XPOST 'http://127.0.01:5006/detect_faces' --form 'file=@"/Users/edy/Downlo
 
 ### api-获取抽取出的人脸图片
 请求
-```http
+```
 curl -XGET 'http://127.0.0.1:5006/get_face_image/duorenlian_20250108_123459_0.jpg'
 ```
 
@@ -35,7 +35,7 @@ curl -XGET 'http://127.0.0.1:5006/get_face_image/duorenlian_20250108_123459_0.jp
 
 ### api-获取人脸特征向量
 请求
-```http
+```
 curl -XPOST 'http://127.0.0.1:5000/embeddings' --form 'file=@"/Users/edy/Downloads/10.jpg"'
 ```
 
