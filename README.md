@@ -1,8 +1,8 @@
-# 使用Deepface抽取人脸、抽取特征向量
+# 使用Deepface-CPU版本,抽取人脸、抽取特征向量
 
-## http api
+## 1、http api
 
-### api-抽取人脸
+### 1.1、api-抽取人脸
 请求
 ```
 curl -XPOST 'http://127.0.01:5006/detect_faces' --form 'file=@"/Users/edy/Downloads/duorenlian.jpeg"'
@@ -25,7 +25,7 @@ curl -XPOST 'http://127.0.01:5006/detect_faces' --form 'file=@"/Users/edy/Downlo
 ```
 抽取出的人脸保存在项目目录下的/deepface-output下以上传的文件名加上传时间+抽取的人脸序号命令保存
 
-### api-获取抽取出的人脸图片
+### 1.2、api-获取抽取出的人脸图片
 请求
 ```
 curl -XGET 'http://127.0.0.1:5006/get_face_image/duorenlian_20250108_123459_0.jpg'
@@ -33,7 +33,7 @@ curl -XGET 'http://127.0.0.1:5006/get_face_image/duorenlian_20250108_123459_0.jp
 
 返回图片
 
-### api-获取人脸特征向量
+### 1.3、api-获取人脸特征向量
 请求
 ```
 curl -XPOST 'http://127.0.0.1:5000/embeddings' --form 'file=@"/Users/edy/Downloads/10.jpg"'
@@ -77,17 +77,17 @@ curl -XPOST 'http://127.0.0.1:5000/embeddings' --form 'file=@"/Users/edy/Downloa
 }
 ```
 
-# docker
+# 2、docker
 
-1. 构建镜像
+2.1. 构建镜像
 ```shell
 docker build --load -t face_extract_api:v1 . 
 ```
-2. 下载模型
+2.2. 下载模型
 
 注意下载 https://github.com/serengil/deepface_models/releases/download/v1.0/facenet512_weights.h5 后面需要将模型挂载进容器
 
-3. 运行容器
+2.3. 运行容器
 ```shell
 docker run -itd --name face_extract_api -p 5006:5006 \
 -v ~/face_extract_api/weights:/root/.deepface/weights/ \
